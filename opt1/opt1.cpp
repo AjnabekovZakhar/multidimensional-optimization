@@ -6,7 +6,7 @@ using namespace std;
 
 
 std::mt19937 SingletonGenerator::mersennetwister;
-
+//test
 
 
 int main()
