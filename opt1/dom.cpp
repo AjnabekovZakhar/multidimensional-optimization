@@ -12,6 +12,11 @@ bool All_space::inside(vector<double> v)
     return true;
 }
 
+vector<double> All_space::correct_point(vector<double> inside, vector<double> outside)
+{
+    return outside;
+}
+
 Dom::Dom(int dim_, vector<double> left_, vector<double> right_)
 {
     dim = dim_;
@@ -50,6 +55,32 @@ vector<double> Dom::get_random_point()
     for (int i = 0; i < dim; ++i)
         point.push_back(((right[i]-left[i])*getu01_sing())+left[i]);
     return point;
+}
+
+vector<double> Dom::correct_point(vector<double>inside , vector<double>outside)
+{
+    if (!(this->inside(inside)))
+        throw invalid_argument("inside point not inside");
+    if ((inside.size() != outside.size())||(inside.size() != dim))
+        throw length_error("dimension error");
+    if (this->inside(outside))
+        return outside;
+
+    vector<double> new_left = left - inside, new_right = right - inside,new_outside=outside-inside,res;
+    
+    for (int i = 0; i < dim; ++i) {
+        if (new_outside[i] < new_left[i]) {
+            res = ((new_left[i] / new_outside[i]) * new_outside)+inside;
+            if (this->inside(res))
+                return res;
+        }
+        if (new_outside[i] > new_right[i]) {
+            res = ((new_right[i] / new_outside[i]) * new_outside) + inside;
+            if (this->inside(res))
+                return res;
+        }
+    }
+    return outside;
 }
 
 Dom Dom::cross_dom(vector<double>v, double delta)

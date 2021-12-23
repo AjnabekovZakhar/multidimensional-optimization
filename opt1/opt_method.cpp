@@ -36,7 +36,7 @@ vector<vector<double>> Newton::optim(vector<double> v)
 		throw ("x_0 not inside");
 	x_n.clear();
 	x_n.push_back(v);
-	while (stop_crit->check(sup)&&area->inside(x_n.back())) {
+	while (stop_crit->check(sup)) {
 		p_n = -1*LinEqSolve(opt_fun->calc_Hess(x_n.back()),opt_fun->calc_grad(x_n.back()));
 		l = x_n.back();
 		r = x_n.back() + p_n;
@@ -48,6 +48,11 @@ vector<vector<double>> Newton::optim(vector<double> v)
 				r = r_;
 			else
 				l = l_;
+		}
+		if (!(area->inside((l+r)/2)))
+		{
+			x_n.push_back((area->correct_point(x_n.back(),(l+r)/2)));
+			return x_n;
 		}
 		x_n.push_back((l + r) / 2);
 		sup->set_x_n(x_n.back());
@@ -67,9 +72,10 @@ Newton::Newton(Area* area_, Opt_fun*opt_fun_, Stop_crit*stop_crit_)
 
 vector<vector<double>> Random_search::optim(vector<double> v)
 {
-	sup_stop_Newton* sup = new sup_stop_Newton(opt_fun, v);
+	sup_stop_random_search* sup = new sup_stop_random_search(opt_fun, v);
 	vector<double> y_n;
 
+	double delta_multiplier=1;
 
 	if (area->inside(v) == false)
 		throw ("x_0 not inside");
@@ -82,13 +88,16 @@ vector<vector<double>> Random_search::optim(vector<double> v)
 		if (getu01_sing() < p)
 			y_n = dom->get_random_point();
 		else
-			y_n = dom->cross_dom(x_n.back(), delta).get_random_point();
+			y_n = dom->cross_dom(x_n.back(), (delta_multiplier/=2)*delta).get_random_point();
 
 		//cout << y_n[0] << ' ' << y_n[1] << endl;
-		if (opt_fun->calc(y_n) < opt_fun->calc(x_n.back()))
+		if (opt_fun->calc(y_n) < opt_fun->calc(x_n.back())) {
 			x_n.push_back(y_n);
+			sup->set_x_n(x_n.back());
+			sup->last_change_count_increment();
+		}
 		else x_n.push_back(x_n.back());
-		sup->set_x_n(x_n.back());
+
 	}
 	return x_n;
 }
