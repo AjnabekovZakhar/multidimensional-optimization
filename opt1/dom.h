@@ -11,6 +11,7 @@ public:
 	virtual bool inside(vector<double>) = 0;
 	virtual vector<double> correct_point(vector<double>, vector<double>)=0;
 	const int get_dim();
+	virtual string info()=0;
 };
 
 class All_space:public Area {
@@ -18,6 +19,7 @@ public:
 	All_space(int);
 	virtual bool inside(vector<double>) override;
 	virtual vector<double> correct_point(vector<double>, vector<double>) override;
+	virtual string info() override;
 };
 
 class Dom :public Area {
@@ -30,4 +32,5 @@ public:
 	vector<double> get_random_point();
 	virtual vector<double> correct_point(vector<double>, vector<double>) override;
 	Dom cross_dom(vector<double>, double);
+	virtual string info() override;
 };

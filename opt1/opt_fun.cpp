@@ -41,6 +41,11 @@ Opt_fun1::Opt_fun1()
         {new Opt_fun1_Hess12,new Opt_fun1_Hess11} };
 }
 
+string Opt_fun1::info()
+{
+    return "f(x,y)=x^2+y^2";
+}
+
 double Opt_fun2::calc(const vector<double>& v)
 {
     return (1-v[0])*(1-v[0])+100*(v[1]-v[0]*v[0])* (v[1] - v[0] * v[0]);
@@ -52,4 +57,9 @@ Opt_fun2::Opt_fun2()
     grad = { new Opt_fun2_grad1,new Opt_fun2_grad2 };
     Hess = { {new Opt_fun2_Hess11,new Opt_fun2_Hess12},
         {new Opt_fun2_Hess12,new Opt_fun2_Hess22} };
+}
+
+string Opt_fun2::info()
+{
+    return "f(x,y)=(1-x)^2+100(y-x^2)^2";
 }

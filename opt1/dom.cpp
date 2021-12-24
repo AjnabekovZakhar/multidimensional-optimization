@@ -17,11 +17,19 @@ vector<double> All_space::correct_point(vector<double> inside, vector<double> ou
     return outside;
 }
 
+string All_space::info()
+{
+    return "Domain: R^"+ to_string(dim);
+}
+
 Dom::Dom(int dim_, vector<double> left_, vector<double> right_)
 {
     dim = dim_;
     if (dim != left_.size() || dim != right_.size())
-        throw("dim != left_.size() || dim != right_.size()");
+        throw domain_error("dim != left_.size() || dim != right_.size()");
+    for (int i = 0; i < left_.size(); ++i)
+        if (left_[i] >= right_[i])
+            throw domain_error("left_["+to_string(i)+"] >= right_[" + to_string(i) + "]");
     left = left_;
     right = right_;
 }
@@ -91,6 +99,15 @@ Dom Dom::cross_dom(vector<double>v, double delta)
         right_.push_back(min(right[i],v[i]+delta));
     }
     return Dom(v.size(),left_,right_);
+}
+
+string Dom::info()
+{
+    string res="Domain: ";
+    for (int i = 0; i < left.size(); ++i)
+        res += ("[" + to_string(left[i])+", "+ to_string(right[i])+"]x");
+    res.pop_back();
+    return res;
 }
 
 const int Area::get_dim()

@@ -33,6 +33,11 @@ void Stop_crit_count::reset_count()
     count = 0;
 }
 
+string Stop_crit_count::info()
+{
+    return "Stopping criterion: by the number of iterations("+to_string(max)+")";
+}
+
 bool Stop_crit_Newton_dif::check(sup_stop*sup)
 {
     sup_stop_Newton*sup_N = dynamic_cast<sup_stop_Newton*>(sup);
@@ -59,6 +64,11 @@ Stop_crit_Newton_dif::Stop_crit_Newton_dif(int max_, double epsi_):Stop_crit_cou
     
 }
 
+string Stop_crit_Newton_dif::info()
+{
+    return "Stopping criterion: by the number of iterations(" + to_string(max) + ") and |x_n-x_{n-1}|<"+to_string(epsi);
+}
+
 bool Stop_crit_Newton_grad::check(sup_stop*sup)
 {
     sup_stop_Newton* sup_N = dynamic_cast<sup_stop_Newton*>(sup);
@@ -83,6 +93,11 @@ Stop_crit_Newton_grad::Stop_crit_Newton_grad(int max_, double epsi_) :Stop_crit_
     epsi = epsi_;
 }
 
+string Stop_crit_Newton_grad::info()
+{
+    return "Stopping criterion: by the number of iterations(" + to_string(max) + ") and ||grad(x_n)||<" + to_string(epsi);
+}
+
 bool Stop_crit_Newton3::check(sup_stop* sup)
 {
     sup_stop_Newton* sup_N = dynamic_cast<sup_stop_Newton*>(sup);
@@ -104,6 +119,11 @@ Stop_crit_Newton3::Stop_crit_Newton3(int max_, double epsi_) :Stop_crit_count(ma
     if (epsi_ < 0)
         throw("epsilon < 0");
     epsi = epsi_;
+}
+
+string Stop_crit_Newton3::info()
+{
+    return "Stopping criterion: by the number of iterations(" + to_string(max) + ") and |(f(x_n)-f(x_{n-1})/f(x_n))|<" + to_string(epsi);
 }
 
 bool Stop_crit_random_search_dif::check(sup_stop* sup)
@@ -130,6 +150,11 @@ Stop_crit_random_search_dif::Stop_crit_random_search_dif(int max_, double epsi_)
     epsi = epsi_;
 }
 
+string Stop_crit_random_search_dif::info()
+{
+    return "Stopping criterion: by the number of iterations(" + to_string(max) + ") and |x_n-x_{n-1}|<" + to_string(epsi)+"(x_n!=x_{n-1})";
+}
+
 bool Stop_crit_random_search_last_change::check(sup_stop* sup)
 {
     sup_stop_random_search* sup_rs = dynamic_cast<sup_stop_random_search*>(sup);
@@ -148,4 +173,9 @@ bool Stop_crit_random_search_last_change::check(sup_stop* sup)
 
 Stop_crit_random_search_last_change::Stop_crit_random_search_last_change(int max_, int max_lc_) :Stop_crit_count(max_),max_lc(max_lc_)
 {
+}
+
+string Stop_crit_random_search_last_change::info()
+{
+    return "Stopping criterion: by the number of iterations(" + to_string(max) + ") and the number of iterations since the last change("+ to_string(max_lc) + ")";
 }

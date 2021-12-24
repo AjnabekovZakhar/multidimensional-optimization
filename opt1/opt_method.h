@@ -18,6 +18,7 @@ public:
 	void set_opt_fun(Opt_fun*);
 	void set_stop_crit(Stop_crit*);
 	~Opt_method();
+	virtual vector<string> info() = 0;
 };
 
 class Newton :public Opt_method {
@@ -26,6 +27,7 @@ protected:
 public:
 	virtual vector<vector<double>> optim(vector<double>) override;
 	Newton(Area*, Opt_fun*, Stop_crit*);
+	virtual vector<string> info() override;
 };
 
 class Random_search :public Opt_method {
@@ -35,4 +37,5 @@ protected:
 public:
 	virtual vector<vector<double>> optim(vector<double>) override;
 	Random_search(Area*, Opt_fun*,Stop_crit*,double, double);
+	virtual vector<string> info() override;
 };

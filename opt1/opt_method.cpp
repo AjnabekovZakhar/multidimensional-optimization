@@ -33,7 +33,7 @@ vector<vector<double>> Newton::optim(vector<double> v)
 	vector<double> l=v, r=v, l_=v, r_=v;
 	
 	if (area->inside(v) == false)
-		throw ("x_0 not inside");
+		throw domain_error("x_0 not inside");
 	x_n.clear();
 	x_n.push_back(v);
 	while (stop_crit->check(sup)) {
@@ -70,6 +70,29 @@ Newton::Newton(Area* area_, Opt_fun*opt_fun_, Stop_crit*stop_crit_)
 	stop_crit = stop_crit_;
 }
 
+vector<string> Newton::info()
+{
+	vector<string> res;
+	res.push_back("Newton's method");
+	res.push_back(opt_fun->info());
+	res.push_back(area->info());
+	res.push_back(stop_crit->info());
+	string temp;
+	for (int i = 0; i < x_n.size(); i += max(1, int(pow(10, int(log10(x_n.size() - 1)))))) {
+		temp = "x_" + to_string(i) + ": ";
+		for (int j = 0; j < x_n[i].size(); ++j)
+			temp += to_string(x_n[i][j]) + " ";
+		temp += "f(x_" + to_string(i) + "): " + to_string(opt_fun->calc(x_n[i]));
+		res.push_back(temp);
+	}
+	temp = "x_" + to_string(x_n.size()-1) + ": ";
+	for (int j = 0; j < x_n.back().size(); ++j)
+		temp += to_string(x_n.back()[j]) + " ";
+	temp += "f(x_" + to_string(x_n.size() - 1) + "): " + to_string(opt_fun->calc(x_n.back()));
+	res.push_back(temp);
+	return res;
+}
+
 vector<vector<double>> Random_search::optim(vector<double> v)
 {
 	sup_stop_random_search* sup = new sup_stop_random_search(opt_fun, v);
@@ -78,7 +101,7 @@ vector<vector<double>> Random_search::optim(vector<double> v)
 	double delta_multiplier=1;
 
 	if (area->inside(v) == false)
-		throw ("x_0 not inside");
+		throw domain_error("x_0 not inside");
 
 	x_n.clear();
 	x_n.push_back(v);
@@ -108,10 +131,36 @@ Random_search::Random_search(Area*area_, Opt_fun*opt_fun_, Stop_crit*stop_crit_,
 		throw("area_->dim != opt_fun_->dim");
 	if (dynamic_cast<Dom*>(area_) == nullptr)
 		throw("area is not correct");
+
 	area = area_;
 	opt_fun = opt_fun_;
 	stop_crit = stop_crit_;
 	delta = delta_;
 	p = p_;
+
+}
+
+vector<string> Random_search::info()
+{
+
+	vector<string> res;
+	res.push_back("Random search(delta = "+to_string(delta)+", p = "+to_string(p)+")");
+	res.push_back(opt_fun->info());
+	res.push_back(area->info());
+	res.push_back(stop_crit->info());
+	string temp;
+	for (int i = 0; i < x_n.size(); i += max(1, int(pow(10, int(log10(x_n.size() - 1)))))) {
+		temp = "x_" + to_string(i) + ": ";
+		for (int j = 0; j < x_n[i].size(); ++j)
+			temp += to_string(x_n[i][j]) + " ";
+		temp += "f(x_" + to_string(i) + "): " + to_string(opt_fun->calc(x_n[i]));
+		res.push_back(temp);
+	}
+	temp = "x_" + to_string(x_n.size() - 1) + ": ";
+	for (int j = 0; j < x_n.back().size(); ++j)
+		temp += to_string(x_n.back()[j]) + " ";
+	temp += "f(x_" + to_string(x_n.size() - 1) + "): " + to_string(opt_fun->calc(x_n.back()));
+	res.push_back(temp);
+	return res;
 
 }
