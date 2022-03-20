@@ -8,7 +8,7 @@ All_space::All_space(int dim_)
 bool All_space::inside(vector<double> v)
 {
     if (dim != v.size())
-        throw("dim != v.size()");
+        throw domain_error("dim != v.size()");
     return true;
 }
 
@@ -37,7 +37,7 @@ Dom::Dom(int dim_, vector<double> left_, vector<double> right_)
 bool Dom::inside(vector<double>v)
 {
     if (dim != v.size())
-        throw("dim != v.size()");
+        throw domain_error("dim != v.size()");
     for (int i = 0; i < dim; ++i) {
         if (v[i]<left[i]) {
             /*vector<double> new_left = left - v + p;// границы относительно предыдущей точки(если перенести начало коорд. в неё)
@@ -70,7 +70,7 @@ vector<double> Dom::correct_point(vector<double>inside , vector<double>outside)
     if (!(this->inside(inside)))
         throw invalid_argument("inside point not inside");
     if ((inside.size() != outside.size())||(inside.size() != dim))
-        throw length_error("dimension error");
+        throw domain_error("dimension error");
     if (this->inside(outside))
         return outside;
 
@@ -98,7 +98,19 @@ Dom Dom::cross_dom(vector<double>v, double delta)
         left_.push_back(max(left[i], v[i] - delta));
         right_.push_back(min(right[i],v[i]+delta));
     }
-    return Dom(v.size(),left_,right_);
+    try {
+        return Dom(v.size(), left_, right_);
+    }
+    catch (exception& e) {
+        cout << "left:" << left[0] <<" "<< left[1] << endl;
+        cout << "right:" << right[0] << " " << right[1] << endl;
+        cout << "v:" << v[0] << " " << v[1] << endl;
+        cout << "delta:" << delta << endl;
+
+        cout << "left_:" << left_[0] << " " << left_[1] << endl;
+        cout << "right_:" << right_[0] << " " << right_[1] << endl;
+        throw e;
+    }
 }
 
 string Dom::info()

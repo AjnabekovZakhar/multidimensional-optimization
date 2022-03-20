@@ -14,7 +14,7 @@ bool Stop_crit_count::check(sup_stop * =nullptr)
 Stop_crit_count::Stop_crit_count(int max_)
 {
     if (max_ < 1)
-        throw("max < 1");
+        throw invalid_argument("max < 1");
     max = max_;
 }
 
@@ -58,7 +58,7 @@ Stop_crit_Newton_dif::Stop_crit_Newton_dif(int max_, double epsi_):Stop_crit_cou
 {
 
     if (epsi_ < 0)
-        throw("epsilon < 0");
+        throw invalid_argument("epsilon < 0");
     epsi = epsi_;
 
     
@@ -89,7 +89,7 @@ Stop_crit_Newton_grad::Stop_crit_Newton_grad(int max_, double epsi_) :Stop_crit_
 {
 
     if (epsi_ < 0)
-        throw("epsilon < 0");
+        throw invalid_argument("epsilon < 0");
     epsi = epsi_;
 }
 
@@ -117,7 +117,7 @@ Stop_crit_Newton3::Stop_crit_Newton3(int max_, double epsi_) :Stop_crit_count(ma
 {
 
     if (epsi_ < 0)
-        throw("epsilon < 0");
+        throw invalid_argument("epsilon < 0");
     epsi = epsi_;
 }
 
@@ -146,7 +146,7 @@ Stop_crit_random_search_dif::Stop_crit_random_search_dif(int max_, double epsi_)
 {
 
     if (epsi_ < 0)
-        throw("epsilon < 0");
+        throw invalid_argument("epsilon < 0");
     epsi = epsi_;
 }
 

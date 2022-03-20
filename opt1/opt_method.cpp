@@ -63,7 +63,7 @@ vector<vector<double>> Newton::optim(vector<double> v)
 Newton::Newton(Area* area_, Opt_fun*opt_fun_, Stop_crit*stop_crit_)
 {
 	if (area_->get_dim() != opt_fun_->get_dim())
-		throw("area_->dim != opt_fun_->dim");
+		throw domain_error("area_->dim != opt_fun_->dim");
 
 	area = area_;
 	opt_fun = opt_fun_;
@@ -107,20 +107,30 @@ vector<vector<double>> Random_search::optim(vector<double> v)
 	x_n.push_back(v);
 
 	Dom* dom = dynamic_cast<Dom*>(area);
-	while (stop_crit->check(sup)) {
-		if (getu01_sing() < p)
-			y_n = dom->get_random_point();
-		else
-			y_n = dom->cross_dom(x_n.back(), (delta_multiplier/=2)*delta).get_random_point();
+	bool local_opt = false;
 
-		//cout << y_n[0] << ' ' << y_n[1] << endl;
+	while (stop_crit->check(sup)) {
+		local_opt = (getu01_sing() < p);
+
+		if (local_opt)
+			y_n = dom->cross_dom(x_n.back(), delta_multiplier*delta).get_random_point();
+		else
+			y_n = dom->get_random_point();
+
 		if (opt_fun->calc(y_n) < opt_fun->calc(x_n.back())) {
+			if (local_opt)
+				if(delta_multiplier * delta > DBL_EPSILON)
+				delta_multiplier /= 2;
+			else
+				delta_multiplier = 1;
 			x_n.push_back(y_n);
 			sup->set_x_n(x_n.back());
+			sup->last_change_count_set_zero();
+		}
+		else {
+			x_n.push_back(x_n.back());
 			sup->last_change_count_increment();
 		}
-		else x_n.push_back(x_n.back());
-
 	}
 	return x_n;
 }
@@ -128,9 +138,9 @@ vector<vector<double>> Random_search::optim(vector<double> v)
 Random_search::Random_search(Area*area_, Opt_fun*opt_fun_, Stop_crit*stop_crit_,double delta_=1e-7,double p_=0.5)
 {
 	if (area_->get_dim() != opt_fun_->get_dim())
-		throw("area_->dim != opt_fun_->dim");
+		throw domain_error("area_->dim != opt_fun_->dim");
 	if (dynamic_cast<Dom*>(area_) == nullptr)
-		throw("area is not correct");
+		throw domain_error("area is not correct");
 
 	area = area_;
 	opt_fun = opt_fun_;

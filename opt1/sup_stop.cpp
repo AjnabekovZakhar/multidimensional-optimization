@@ -66,6 +66,11 @@ const vector<double> sup_stop_random_search::get_x_n_old()
 	return x_n_old;
 }
 
+void sup_stop_random_search::last_change_count_set_zero()
+{
+	last_change_count=0;
+}
+
 void sup_stop_random_search::last_change_count_increment()
 {
 	++last_change_count;

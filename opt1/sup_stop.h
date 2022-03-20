@@ -37,5 +37,6 @@ public:
 	double get_fun_x_n_old();
 	const int get_last_change_count();
 	const vector<double> get_x_n_old();
+	void last_change_count_set_zero();
 	void last_change_count_increment();
 };

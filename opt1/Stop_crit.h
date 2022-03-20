@@ -44,7 +44,7 @@ public:
 	virtual string info() override;
 };
 
-class Stop_crit_Newton3 :public Stop_crit_count {//|(f(x_n)-f(x_{n-1})/f(x_n))|
+class Stop_crit_Newton3 :public Stop_crit_count { //|(f(x_n)-f(x_{n-1})/f(x_n))|
 protected:
 	double epsi;
 public:

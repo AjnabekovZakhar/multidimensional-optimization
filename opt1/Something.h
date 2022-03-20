@@ -5,15 +5,16 @@
 
 #include <random>
 
+using namespace std;
+
 class SingletonGenerator {
-    static std::mt19937 mersennetwister;
+    static mt19937 mersennetwister;
 public:
-    static std::mt19937& get_mt();
+    static mt19937& get_mt();
 };
 
 double getu01_sing();
 
-using namespace std;
 vector<double> operator+(const vector<double>& a, const vector<double>& b);
 vector<double> operator-(const vector<double>& a, const vector<double>& b);
 vector<double> operator*(double b, const vector<double>& a);
