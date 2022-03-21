@@ -78,15 +78,15 @@ vector<string> Newton::info()
 	res.push_back(area->info());
 	res.push_back(stop_crit->info());
 	string temp;
-	for (int i = 0; i < x_n.size(); i += max(1, int(pow(10, int(log10(x_n.size() - 1)))))) {
+	for (unsigned i = 0; i < x_n.size(); i += max(1, int(pow(10, int(log10(x_n.size() - 1)))))) {
 		temp = "x_" + to_string(i) + ": ";
-		for (int j = 0; j < x_n[i].size(); ++j)
+		for (unsigned j = 0; j < x_n[i].size(); ++j)
 			temp += to_string(x_n[i][j]) + " ";
 		temp += "f(x_" + to_string(i) + "): " + to_string(opt_fun->calc(x_n[i]));
 		res.push_back(temp);
 	}
 	temp = "x_" + to_string(x_n.size()-1) + ": ";
-	for (int j = 0; j < x_n.back().size(); ++j)
+	for (unsigned j = 0; j < x_n.back().size(); ++j)
 		temp += to_string(x_n.back()[j]) + " ";
 	temp += "f(x_" + to_string(x_n.size() - 1) + "): " + to_string(opt_fun->calc(x_n.back()));
 	res.push_back(temp);
@@ -110,7 +110,7 @@ vector<vector<double>> Random_search::optim(vector<double> v)
 	bool local_opt = false;
 
 	while (stop_crit->check(sup)) {
-		local_opt = (getu01_sing() < p);
+		local_opt = (SingletonGenerator::getu01_sing() < p);
 
 		if (local_opt)
 			y_n = dom->cross_dom(x_n.back(), delta_multiplier*delta).get_random_point();
@@ -159,15 +159,15 @@ vector<string> Random_search::info()
 	res.push_back(area->info());
 	res.push_back(stop_crit->info());
 	string temp;
-	for (int i = 0; i < x_n.size(); i += max(1, int(pow(10, int(log10(x_n.size() - 1)))))) {
+	for (unsigned i = 0; i < x_n.size(); i += max(1, int(pow(10, int(log10(x_n.size() - 1)))))) {
 		temp = "x_" + to_string(i) + ": ";
-		for (int j = 0; j < x_n[i].size(); ++j)
+		for (unsigned j = 0; j < x_n[i].size(); ++j)
 			temp += to_string(x_n[i][j]) + " ";
 		temp += "f(x_" + to_string(i) + "): " + to_string(opt_fun->calc(x_n[i]));
 		res.push_back(temp);
 	}
 	temp = "x_" + to_string(x_n.size() - 1) + ": ";
-	for (int j = 0; j < x_n.back().size(); ++j)
+	for (unsigned j = 0; j < x_n.back().size(); ++j)
 		temp += to_string(x_n.back()[j]) + " ";
 	temp += "f(x_" + to_string(x_n.size() - 1) + "): " + to_string(opt_fun->calc(x_n.back()));
 	res.push_back(temp);

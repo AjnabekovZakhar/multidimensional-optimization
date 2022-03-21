@@ -11,9 +11,9 @@ class SingletonGenerator {
     static mt19937 mersennetwister;
 public:
     static mt19937& get_mt();
+    static double getu01_sing();
 };
 
-double getu01_sing();
 
 vector<double> operator+(const vector<double>& a, const vector<double>& b);
 vector<double> operator-(const vector<double>& a, const vector<double>& b);

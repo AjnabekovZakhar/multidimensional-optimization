@@ -2,31 +2,31 @@
 
 vector<double> operator+(const vector<double>& a, const vector<double>& b) {
     if (a.size() != b.size())
-        throw("a.size()!=b.size()");
+        throw invalid_argument("a.size()!=b.size()");
     vector<double> c(a.size());
-    for (int i = 0; i < a.size(); ++i)
+    for (unsigned i = 0; i < a.size(); ++i)
         c[i] = a[i] + b[i];
     return c;
 }
 vector<double> operator-(const vector<double>& a, const vector<double>& b) {
     if (a.size() != b.size())
-        throw("a.size()!=b.size()");
+        throw invalid_argument("a.size()!=b.size()");
     vector<double> c(a.size());
-    for (int i = 0; i < a.size(); ++i)
+    for (unsigned i = 0; i < a.size(); ++i)
         c[i] = a[i] - b[i];
     return c;
 }
 
 vector<double> operator*(double b, const vector<double>& a) {
     vector<double> c(a.size());
-    for (int i = 0; i < a.size(); ++i)
+    for (unsigned i = 0; i < a.size(); ++i)
         c[i] = b * a[i];
     return c;
 }
 
 vector<double> operator/(const vector<double>& a, double b) {
     vector<double> c(a.size());
-    for (int i = 0; i < a.size(); ++i)
+    for (unsigned i = 0; i < a.size(); ++i)
         c[i] = a[i] / b;
     return c;
 }
@@ -66,7 +66,7 @@ vector<double> LinEqSolve(vector<vector<double>>A, vector<double>b) {
 
 double abs(vector<double>v){
     double s = 0;
-    for (int i = 0; i < v.size(); ++i)
+    for (unsigned i = 0; i < v.size(); ++i)
         s += (v[i] * v[i]);
     return sqrt(s);
 };
@@ -75,7 +75,8 @@ std::mt19937& SingletonGenerator::get_mt() {
     return mersennetwister;
 }
 
-double getu01_sing() {
+double SingletonGenerator::getu01_sing()
+{
     std::uniform_real_distribution<double> unif_real_01(0.0, 1.0);
     return unif_real_01(SingletonGenerator::get_mt());
 }

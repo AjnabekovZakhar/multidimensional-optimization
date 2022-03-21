@@ -7,6 +7,7 @@ using namespace std;
 mt19937 SingletonGenerator::mersennetwister;
 
 int main() {
+
     SingletonGenerator::get_mt().seed(42);
 
     Area* area;

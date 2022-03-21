@@ -6,17 +6,17 @@ using namespace std;
 class Area
 {
 protected:
-	int dim;
+	unsigned dim;
 public:
 	virtual bool inside(vector<double>) = 0;
 	virtual vector<double> correct_point(vector<double>, vector<double>)=0;
-	const int get_dim();
+	const unsigned get_dim();
 	virtual string info()=0;
 };
 
 class All_space:public Area {
 public:
-	All_space(int);
+	All_space(unsigned);
 	virtual bool inside(vector<double>) override;
 	virtual vector<double> correct_point(vector<double>, vector<double>) override;
 	virtual string info() override;
@@ -27,7 +27,7 @@ protected:
 	vector<double> left;
 	vector<double> right;
 public:
-	Dom(int, vector<double>, vector<double>);
+	Dom(unsigned, vector<double>, vector<double>);
 	virtual bool inside(vector<double>) override;
 	vector<double> get_random_point();
 	virtual vector<double> correct_point(vector<double>, vector<double>) override;

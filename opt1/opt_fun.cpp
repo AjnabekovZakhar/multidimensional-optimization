@@ -3,9 +3,9 @@
 vector<double> Opt_fun::calc_grad(const vector<double>&v)
 {
     if (dim != v.size())
-        throw("dim!=v.size()");
+        throw domain_error("dim!=v.size()");
     vector<double> res(dim);
-    for (int i = 0; i < dim; ++i)
+    for (unsigned i = 0; i < dim; ++i)
         res[i]=grad[i]->calc(v);
     return res;
 }
@@ -13,12 +13,12 @@ vector<double> Opt_fun::calc_grad(const vector<double>&v)
 vector<vector<double>> Opt_fun::calc_Hess(const vector<double>& v)
 {
     if (dim != v.size())
-        throw("dim!=v.size()");
+        throw domain_error("dim!=v.size()");
     vector<vector<double>> res(dim);
     vector<double> res2(dim);
 
-    for (int i = 0; i < dim; ++i) {
-        for (int j = 0; j < dim; ++j)
+    for (unsigned i = 0; i < dim; ++i) {
+        for (unsigned j = 0; j < dim; ++j)
             res2[j] = Hess[i][j]->calc(v);
         res[i] = res2;
     }
