@@ -19,12 +19,20 @@ void Opt_method::set_stop_crit(Stop_crit*stop_crit_)
 
 Opt_method::~Opt_method()
 {
-	if (area)
+	if (area != nullptr) {
 		delete area;
-	if (opt_fun)
-		delete opt_fun;
-	if (stop_crit)
+		area = nullptr;
+	}
+
+	if (stop_crit != nullptr) {
 		delete stop_crit;
+		stop_crit = nullptr;
+	}
+
+	if (opt_fun != nullptr) {
+		delete opt_fun;
+		opt_fun = nullptr;
+	}
 }
 
 vector<vector<double>> Newton::optim(vector<double> v)
@@ -114,16 +122,18 @@ vector<vector<double>> Random_search::optim(vector<double> v)
 
 		if (local_opt)
 			y_n = dom->cross_dom(x_n.back(), delta_multiplier * delta).get_random_point();
-		else {
+		else 
 		y_n = dom->get_random_point();
-		delta_multiplier = 1;
-	}
+
 
 		if (opt_fun->calc(y_n) < opt_fun->calc(x_n.back())) {
-			if (local_opt)
-				if(delta_multiplier * delta > DBL_EPSILON)
-				delta_multiplier /= 2;
-
+			if (local_opt) {
+				if ((delta_multiplier * delta)>DBL_EPSILON)
+					delta_multiplier /= 2;
+			}
+			else {
+				delta_multiplier = 1;
+			}
 			x_n.push_back(y_n);
 			sup->set_x_n(x_n.back());
 			sup->last_change_count_set_zero();

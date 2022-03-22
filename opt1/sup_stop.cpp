@@ -45,7 +45,6 @@ void sup_stop_random_search::set_x_n(vector<double> x_n_)
 	x_n = x_n_;
 }
 
-
 double sup_stop_random_search::get_fun_x_n()
 {
 	return func->calc(x_n);

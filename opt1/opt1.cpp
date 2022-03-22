@@ -10,25 +10,25 @@ int main() {
 
     SingletonGenerator::get_mt().seed(42);
 
-    Area* area;
-    Opt_fun* opt_fun;
-    Stop_crit* stop_crit;
-    Opt_method* opt_method;
+    Area* area = nullptr;
+    Opt_fun* opt_fun = nullptr;
+    Stop_crit* stop_crit = nullptr;
+    Opt_method* opt_method = nullptr;
 
-    vector<double> v = { 0,0 }, left = { -10,-10 }, right = {10,10};
+    vector<double> v = { 0,0 }, left = { -10,-10 }, right = { 10,10 };
     vector<vector<double>> res;
 
     int max, max_lc;
-    double epsilon,delta,p;
+    double epsilon, delta, p;
 
     vector<string> output;
 
-    char input='f';
+    char input = 'f';
     while (input != 'q') {
         try {
 
-            cout << "Choose a function to optimize"<<endl;
-            cout<<"\"r\" - Rosenbrock function" << endl;
+            cout << "Choose a function to optimize" << endl;
+            cout << "\"r\" - Rosenbrock function" << endl;
             cout << "another char - x^2+y^2" << endl;
             cin >> input;
             if (input == 'r')
@@ -87,8 +87,8 @@ int main() {
                     break;
                 }
 
-                opt_method = new Newton(area,opt_fun,stop_crit);
-            
+                opt_method = new Newton(area, opt_fun, stop_crit);
+
             }
             else {
                 cout << "Choose stop criterion" << endl;
@@ -101,7 +101,7 @@ int main() {
                 cout << "Choose a delta" << endl;
                 cin >> delta;
                 cout << "Choose a probability" << endl;
-                cin >>p;
+                cin >> p;
                 switch (input) {
                 case 'i':
                     cout << "Choose epsilon" << endl;
@@ -112,13 +112,13 @@ int main() {
                 case 'c':
                     cout << "Choose maximum number of iterations since the last change" << endl;
                     cin >> max_lc;
-                    stop_crit = new Stop_crit_random_search_last_change(max,max_lc);
+                    stop_crit = new Stop_crit_random_search_last_change(max, max_lc);
                     break;
                 default:
                     stop_crit = new Stop_crit_count(max);
                     break;
                 }
-                opt_method = new Random_search(area, opt_fun, stop_crit,delta,p);
+                opt_method = new Random_search(area, opt_fun, stop_crit, delta, p);
             }
 
             cout << endl;
@@ -135,10 +135,14 @@ int main() {
             cout << "Exception: " << e.what() << endl;
         }
         cout << endl;
-        cout << "Press q to quit, another char continue" <<endl;
+        cout << "Press q to quit, another char continue" << endl;
         cin >> input;
         cout << endl << endl;
     }
 
+    if (opt_method != nullptr) {
+        delete opt_method;
+        opt_method = nullptr;
+    }
     return 0;
 }
