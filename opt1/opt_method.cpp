@@ -113,16 +113,17 @@ vector<vector<double>> Random_search::optim(vector<double> v)
 		local_opt = (SingletonGenerator::getu01_sing() < p);
 
 		if (local_opt)
-			y_n = dom->cross_dom(x_n.back(), delta_multiplier*delta).get_random_point();
-		else
-			y_n = dom->get_random_point();
+			y_n = dom->cross_dom(x_n.back(), delta_multiplier * delta).get_random_point();
+		else {
+		y_n = dom->get_random_point();
+		delta_multiplier = 1;
+	}
 
 		if (opt_fun->calc(y_n) < opt_fun->calc(x_n.back())) {
 			if (local_opt)
 				if(delta_multiplier * delta > DBL_EPSILON)
 				delta_multiplier /= 2;
-			else
-				delta_multiplier = 1;
+
 			x_n.push_back(y_n);
 			sup->set_x_n(x_n.back());
 			sup->last_change_count_set_zero();
