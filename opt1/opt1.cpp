@@ -95,7 +95,7 @@ int main() {
                 cout << "Choose a stop criterion" << endl;
                 cout << "\"i\" - ||x_n-x_{n-1}||<eps" << endl;
                 cout << "\"g\" - |grad(f(x_n))|<eps" << endl;
-                cout << "\"f\" - |(f(x_n)-f(x_{n-1}))/f(x_n)|" << endl;
+                cout << "\"f\" - |(f(x_n)-f(x_{n-1}))/f(x_n)|<eps" << endl;
                 cout << "another char - number of iterations" << endl;
                 cin >> input;
 

@@ -1,0 +1,47 @@
+\hypertarget{class_opt__fun}{}\doxysection{Класс Opt\+\_\+fun}
+\label{class_opt__fun}\index{Opt\_fun@{Opt\_fun}}
+
+
+Абстрактный класс для оптимизируюмых функций  
+
+
+
+
+{\ttfamily \#include $<$opt\+\_\+fun.\+h$>$}
+
+Граф наследования\+:Opt\+\_\+fun\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_opt__fun}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_opt__fun_ae1f37cf4e04ea52e011af943a0c4dd6e}\label{class_opt__fun_ae1f37cf4e04ea52e011af943a0c4dd6e}} 
+virtual vector$<$ double $>$ \mbox{\hyperlink{class_opt__fun_ae1f37cf4e04ea52e011af943a0c4dd6e}{calc\+\_\+grad}} (const vector$<$ double $>$ \&)
+\begin{DoxyCompactList}\small\item\em Вычисление значения градиента в точке \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_opt__fun_a13421c10abe45f7435f4cb40946d4e33}\label{class_opt__fun_a13421c10abe45f7435f4cb40946d4e33}} 
+virtual vector$<$ vector$<$ double $>$ $>$ \mbox{\hyperlink{class_opt__fun_a13421c10abe45f7435f4cb40946d4e33}{calc\+\_\+\+Hess}} (const vector$<$ double $>$ \&)
+\begin{DoxyCompactList}\small\item\em Вычисление значения Гессиана в точке \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_opt__fun_a736af73912d8eaddc4ce15b966e188bb}\label{class_opt__fun_a736af73912d8eaddc4ce15b966e188bb}} 
+virtual string {\bfseries info} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_opt__fun_ad9e7774a0b70b51cc7a6448c399aa6e5}\label{class_opt__fun_ad9e7774a0b70b51cc7a6448c399aa6e5}} 
+vector$<$ \mbox{\hyperlink{class_expr}{Expr}} $\ast$ $>$ {\bfseries grad}
+\item 
+\mbox{\Hypertarget{class_opt__fun_a69c6e9f5eb3fe30330d037c3ff0f62ad}\label{class_opt__fun_a69c6e9f5eb3fe30330d037c3ff0f62ad}} 
+vector$<$ vector$<$ \mbox{\hyperlink{class_expr}{Expr}} $\ast$ $>$ $>$ {\bfseries Hess}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Абстрактный класс для оптимизируюмых функций 
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Radish/\+Desktop/7sem/opt1/opt1/opt1/opt\+\_\+fun.\+h\item 
+C\+:/\+Users/\+Radish/\+Desktop/7sem/opt1/opt1/opt1/opt\+\_\+fun.\+cpp\end{DoxyCompactItemize}

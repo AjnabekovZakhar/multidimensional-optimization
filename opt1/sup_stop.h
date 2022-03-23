@@ -2,12 +2,12 @@
 #include"Expr.h"
 #include"Something.h"
 #include"opt_fun.h"
-
+/// \brief јбстрактный вспомогательный класс дл€ критериев остановки
 class sup_stop
 {
 	virtual void set_x_n(vector<double>)=0;
 };
-
+/// \brief ¬спомогательный класс дл€ критериев остановки дл€ метода Ќьютона
 class sup_stop_Newton:public sup_stop{
 	protected:
 		vector<double> x_n;
@@ -23,7 +23,7 @@ class sup_stop_Newton:public sup_stop{
 		double get_fun_x_n_old();
 	    vector<double> get_grad_x_n();
 };
-
+/// \brief ¬спомогательный класс дл€ критериев остановки дл€ случайного поиска
 class sup_stop_random_search :public sup_stop {
 protected:
 	vector<double> x_n;

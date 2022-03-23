@@ -1,0 +1,56 @@
+\hypertarget{class_dom}{}\doxysection{Класс Dom}
+\label{class_dom}\index{Dom@{Dom}}
+
+
+Класс для ограниченной области оптимизации  
+
+
+
+
+{\ttfamily \#include $<$dom.\+h$>$}
+
+Граф наследования\+:Dom\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dom}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_dom_ac3e933fe12378b64e124d90af2425e5e}\label{class_dom_ac3e933fe12378b64e124d90af2425e5e}} 
+{\bfseries Dom} (unsigned, vector$<$ double $>$, vector$<$ double $>$)
+\item 
+\mbox{\Hypertarget{class_dom_a8531c8168994130981ff760898e460ad}\label{class_dom_a8531c8168994130981ff760898e460ad}} 
+virtual bool \mbox{\hyperlink{class_dom_a8531c8168994130981ff760898e460ad}{inside}} (vector$<$ double $>$) override
+\begin{DoxyCompactList}\small\item\em Проверка точки на принадлежность области \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_dom_a25a3ccac919a2dcc8c9e1be55f598a65}\label{class_dom_a25a3ccac919a2dcc8c9e1be55f598a65}} 
+vector$<$ double $>$ \mbox{\hyperlink{class_dom_a25a3ccac919a2dcc8c9e1be55f598a65}{get\+\_\+random\+\_\+point}} ()
+\begin{DoxyCompactList}\small\item\em Генерация случайной точки из ограниченной области \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_dom_a7d9fd41de7530e7a2643997f185a28ae}\label{class_dom_a7d9fd41de7530e7a2643997f185a28ae}} 
+virtual vector$<$ double $>$ \mbox{\hyperlink{class_dom_a7d9fd41de7530e7a2643997f185a28ae}{correct\+\_\+point}} (vector$<$ double $>$, vector$<$ double $>$) override
+\begin{DoxyCompactList}\small\item\em Корректировка для прямой пересекающей границу \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_dom_ae621718ad48dbc8e324aadd8d73c7d69}\label{class_dom_ae621718ad48dbc8e324aadd8d73c7d69}} 
+\mbox{\hyperlink{class_dom}{Dom}} \mbox{\hyperlink{class_dom_ae621718ad48dbc8e324aadd8d73c7d69}{cross\+\_\+dom}} (vector$<$ double $>$, double)
+\begin{DoxyCompactList}\small\item\em Пересечение области с квадратом, заданным центром и половиной длины стороны \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_dom_a37458879adade69f7a42b9bff22e707b}\label{class_dom_a37458879adade69f7a42b9bff22e707b}} 
+virtual string {\bfseries info} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_dom_a8975d98a62b6aca40dfc2e9021c1d1a8}\label{class_dom_a8975d98a62b6aca40dfc2e9021c1d1a8}} 
+vector$<$ double $>$ {\bfseries left}
+\item 
+\mbox{\Hypertarget{class_dom_a6e189d0686055518bf20938ca41e25a4}\label{class_dom_a6e189d0686055518bf20938ca41e25a4}} 
+vector$<$ double $>$ {\bfseries right}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для ограниченной области оптимизации 
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Radish/\+Desktop/7sem/opt1/opt1/opt1/dom.\+h\item 
+C\+:/\+Users/\+Radish/\+Desktop/7sem/opt1/opt1/opt1/dom.\+cpp\end{DoxyCompactItemize}

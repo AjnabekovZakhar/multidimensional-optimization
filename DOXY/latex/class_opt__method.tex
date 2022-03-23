@@ -1,0 +1,59 @@
+\hypertarget{class_opt__method}{}\doxysection{Класс Opt\+\_\+method}
+\label{class_opt__method}\index{Opt\_method@{Opt\_method}}
+
+
+Абстрактный класс для метода оптимизации  
+
+
+
+
+{\ttfamily \#include $<$opt\+\_\+method.\+h$>$}
+
+Граф наследования\+:Opt\+\_\+method\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_opt__method}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_opt__method_ab0c204aa69cc0acdb7d6737b90251810}\label{class_opt__method_ab0c204aa69cc0acdb7d6737b90251810}} 
+virtual vector$<$ vector$<$ double $>$ $>$ \mbox{\hyperlink{class_opt__method_ab0c204aa69cc0acdb7d6737b90251810}{optim}} (vector$<$ double $>$)=0
+\begin{DoxyCompactList}\small\item\em Метод для оптимизации со стартом в заданной точке \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_opt__method_a4d563784830e52ad2a4b240def71684a}\label{class_opt__method_a4d563784830e52ad2a4b240def71684a}} 
+void {\bfseries set\+\_\+area} (\mbox{\hyperlink{class_area}{Area}} $\ast$)
+\item 
+\mbox{\Hypertarget{class_opt__method_a4bbfbc7981681bc213cf195524183367}\label{class_opt__method_a4bbfbc7981681bc213cf195524183367}} 
+void {\bfseries set\+\_\+opt\+\_\+fun} (\mbox{\hyperlink{class_opt__fun}{Opt\+\_\+fun}} $\ast$)
+\item 
+\mbox{\Hypertarget{class_opt__method_ad72d6cfd51f3d6fee6143d5851afb644}\label{class_opt__method_ad72d6cfd51f3d6fee6143d5851afb644}} 
+void {\bfseries set\+\_\+stop\+\_\+crit} (\mbox{\hyperlink{class_stop__crit}{Stop\+\_\+crit}} $\ast$)
+\item 
+\mbox{\Hypertarget{class_opt__method_a29eed4e629a5823002a23fe5bd4fb7ba}\label{class_opt__method_a29eed4e629a5823002a23fe5bd4fb7ba}} 
+virtual vector$<$ string $>$ {\bfseries info} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_opt__method_a86a9f63ff384539f50ed833df2247b14}\label{class_opt__method_a86a9f63ff384539f50ed833df2247b14}} 
+vector$<$ vector$<$ double $>$ $>$ {\bfseries x\+\_\+n}
+\item 
+\mbox{\Hypertarget{class_opt__method_a66166a46be8caf9039a33f827a3b81ce}\label{class_opt__method_a66166a46be8caf9039a33f827a3b81ce}} 
+\mbox{\hyperlink{class_area}{Area}} $\ast$ {\bfseries area} =nullptr
+\item 
+\mbox{\Hypertarget{class_opt__method_a5852d3263e89f89a299776de071c52df}\label{class_opt__method_a5852d3263e89f89a299776de071c52df}} 
+\mbox{\hyperlink{class_opt__fun}{Opt\+\_\+fun}} $\ast$ {\bfseries opt\+\_\+fun} =nullptr
+\item 
+\mbox{\Hypertarget{class_opt__method_a6fcc565d04ff88a7a8a6a346a99c2948}\label{class_opt__method_a6fcc565d04ff88a7a8a6a346a99c2948}} 
+\mbox{\hyperlink{class_stop__crit}{Stop\+\_\+crit}} $\ast$ {\bfseries stop\+\_\+crit} =nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Абстрактный класс для метода оптимизации 
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Radish/\+Desktop/7sem/opt1/opt1/opt1/opt\+\_\+method.\+h\item 
+C\+:/\+Users/\+Radish/\+Desktop/7sem/opt1/opt1/opt1/opt\+\_\+method.\+cpp\end{DoxyCompactItemize}

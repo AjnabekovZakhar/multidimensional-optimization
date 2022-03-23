@@ -3,7 +3,7 @@
 #include"opt_fun.h"
 #include"Stop_crit.h"
 #include"Something.h"
-
+/// \brief Абстрактный класс для метода оптимизации
 class Opt_method
 {
 protected:
@@ -13,6 +13,7 @@ protected:
 	Opt_fun* opt_fun=nullptr;
 	Stop_crit* stop_crit=nullptr;
 public:
+///Метод для оптимизации со стартом в заданной точке 
 	virtual vector<vector<double>> optim(vector<double>) = 0;
 	void set_area(Area*);
 	void set_opt_fun(Opt_fun*);
@@ -20,7 +21,7 @@ public:
 	~Opt_method();
 	virtual vector<string> info() = 0;
 };
-
+/// \brief Класс для метода Ньютона
 class Newton :public Opt_method {
 protected:
 	vector<double> p_n;
@@ -29,7 +30,7 @@ public:
 	Newton(Area*, Opt_fun*, Stop_crit*);
 	virtual vector<string> info() override;
 };
-
+/// \brief Класс для случайного поиска
 class Random_search :public Opt_method {
 protected:
 	double delta;

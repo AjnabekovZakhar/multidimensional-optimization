@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Opt: Исходный файл C:/Users/Radish/Desktop/7sem/opt1/opt1/opt1/Stop_crit.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Opt
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_bee534440a20309058f0dfbe0cc44910.html">7sem</a></li><li class="navelem"><a class="el" href="dir_a62c9275081ff46cc4cfe49862bdf9f3.html">opt1</a></li><li class="navelem"><a class="el" href="dir_9f9efa9b8119e880765568a0f96a14b2.html">opt1</a></li><li class="navelem"><a class="el" href="dir_1274f97c01d2091ddc9e1582c642942a.html">opt1</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Stop_crit.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include&lt;vector&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include&quot;sup_stop.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include&lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_stop__crit.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_stop__crit.html">Stop_crit</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_stop__crit.html#a2436097de40834f8d325d32141beedd3">   12</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_stop__crit.html#a2436097de40834f8d325d32141beedd3">check</a>(<a class="code" href="classsup__stop.html">sup_stop</a>*) = 0;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">string</span> info() = 0;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_stop__crit__count.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_stop__crit__count.html">Stop_crit_count</a>:<span class="keyword">public</span> <a class="code" href="class_stop__crit.html">Stop_crit</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">int</span> count = 0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> max=100;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> check(<a class="code" href="classsup__stop.html">sup_stop</a>*) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_stop__crit__count.html">Stop_crit_count</a>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> set_max(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> get_count();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> reset();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">string</span> info() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_stop__crit___newton__dif.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_stop__crit___newton__dif.html">Stop_crit_Newton_dif</a> :<span class="keyword">public</span> <a class="code" href="class_stop__crit__count.html">Stop_crit_count</a> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">double</span> epsi;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> check(<a class="code" href="classsup__stop.html">sup_stop</a>*) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="class_stop__crit___newton__dif.html">Stop_crit_Newton_dif</a>(<span class="keywordtype">int</span>,<span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">string</span> info() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_stop__crit___newton__grad.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_stop__crit___newton__grad.html">Stop_crit_Newton_grad</a> :<span class="keyword">public</span> <a class="code" href="class_stop__crit__count.html">Stop_crit_count</a> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">double</span> epsi;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> check(<a class="code" href="classsup__stop.html">sup_stop</a>*) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_stop__crit___newton__grad.html">Stop_crit_Newton_grad</a>(<span class="keywordtype">int</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">string</span> info() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_stop__crit___newton3.html">   48</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_stop__crit___newton3.html">Stop_crit_Newton3</a> :<span class="keyword">public</span> <a class="code" href="class_stop__crit__count.html">Stop_crit_count</a> { </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">double</span> epsi;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> check(<a class="code" href="classsup__stop.html">sup_stop</a>*) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="class_stop__crit___newton3.html">Stop_crit_Newton3</a>(<span class="keywordtype">int</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">string</span> info() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_stop__crit__random__search__dif.html">   57</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_stop__crit__random__search__dif.html">Stop_crit_random_search_dif</a> :<span class="keyword">public</span> <a class="code" href="class_stop__crit__count.html">Stop_crit_count</a> {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">double</span> epsi;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> check(<a class="code" href="classsup__stop.html">sup_stop</a>*) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="class_stop__crit__random__search__dif.html">Stop_crit_random_search_dif</a>(<span class="keywordtype">int</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">string</span> info() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_stop__crit__random__search__last__change.html">   66</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_stop__crit__random__search__last__change.html">Stop_crit_random_search_last_change</a> :<span class="keyword">public</span> <a class="code" href="class_stop__crit__count.html">Stop_crit_count</a> {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">int</span> max_lc;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> check(<a class="code" href="classsup__stop.html">sup_stop</a>*) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="class_stop__crit__random__search__last__change.html">Stop_crit_random_search_last_change</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">string</span> info() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="ttc" id="aclass_stop__crit___newton3_html"><div class="ttname"><a href="class_stop__crit___newton3.html">Stop_crit_Newton3</a></div><div class="ttdoc">Класс для критерия остановки |(f(x_n)-f(x_{n-1}))/f(x_n)|&lt;eps для метода Ньютона</div><div class="ttdef"><b>Definition:</b> Stop_crit.h:48</div></div>
+<div class="ttc" id="aclass_stop__crit___newton__dif_html"><div class="ttname"><a href="class_stop__crit___newton__dif.html">Stop_crit_Newton_dif</a></div><div class="ttdoc">Класс для критерия остановки ||x_n-x_{n-1}||&lt;eps для метода Ньютона</div><div class="ttdef"><b>Definition:</b> Stop_crit.h:30</div></div>
+<div class="ttc" id="aclass_stop__crit___newton__grad_html"><div class="ttname"><a href="class_stop__crit___newton__grad.html">Stop_crit_Newton_grad</a></div><div class="ttdoc">Класс для критерия остановки |grad(f(x_n))|&lt;eps для метода Ньютона</div><div class="ttdef"><b>Definition:</b> Stop_crit.h:39</div></div>
+<div class="ttc" id="aclass_stop__crit__count_html"><div class="ttname"><a href="class_stop__crit__count.html">Stop_crit_count</a></div><div class="ttdoc">Класс для критерия остановки по числу итераций</div><div class="ttdef"><b>Definition:</b> Stop_crit.h:17</div></div>
+<div class="ttc" id="aclass_stop__crit__random__search__dif_html"><div class="ttname"><a href="class_stop__crit__random__search__dif.html">Stop_crit_random_search_dif</a></div><div class="ttdoc">Класс для критерия остановки ||x_n-x_{n-1}||&lt;eps для случайного поиска</div><div class="ttdef"><b>Definition:</b> Stop_crit.h:57</div></div>
+<div class="ttc" id="aclass_stop__crit__random__search__last__change_html"><div class="ttname"><a href="class_stop__crit__random__search__last__change.html">Stop_crit_random_search_last_change</a></div><div class="ttdoc">Класс для критерия остановки по числу итераций с последнего улучшения для случайного поиска</div><div class="ttdef"><b>Definition:</b> Stop_crit.h:66</div></div>
+<div class="ttc" id="aclass_stop__crit_html"><div class="ttname"><a href="class_stop__crit.html">Stop_crit</a></div><div class="ttdoc">Абстрактный класс для критериев остановки методов оптимизации</div><div class="ttdef"><b>Definition:</b> Stop_crit.h:8</div></div>
+<div class="ttc" id="aclass_stop__crit_html_a2436097de40834f8d325d32141beedd3"><div class="ttname"><a href="class_stop__crit.html#a2436097de40834f8d325d32141beedd3">Stop_crit::check</a></div><div class="ttdeci">virtual bool check(sup_stop *)=0</div><div class="ttdoc">Метод для проверки условия остановки</div></div>
+<div class="ttc" id="aclasssup__stop_html"><div class="ttname"><a href="classsup__stop.html">sup_stop</a></div><div class="ttdoc">Абстрактный вспомогательный класс для критериев остановки</div><div class="ttdef"><b>Definition:</b> sup_stop.h:7</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
