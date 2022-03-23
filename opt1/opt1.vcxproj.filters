@@ -45,6 +45,12 @@
     <ClCompile Include="sup_stop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="opt_fun3_expr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="opt_fun4_expr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Expr.h">
@@ -72,6 +78,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sup_stop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="opt_fun3_expr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="opt_fun4_expr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

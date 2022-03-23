@@ -15,7 +15,7 @@ int main() {
     Stop_crit* stop_crit = nullptr;
     Opt_method* opt_method = nullptr;
 
-    vector<double> v = { 0,0 }, left = { -10,-10 }, right = { 10,10 };
+    vector<double> v , left, right ;
     vector<vector<double>> res;
 
     int max, max_lc;
@@ -23,18 +23,40 @@ int main() {
 
     vector<string> output;
 
+    int dim = 0;
+    double temp = 0.0;
+
     char input = 'f';
     while (input != 'q') {
         try {
+            v.clear();
+            left.clear();
+            right.clear();
 
             cout << "Choose a function to optimize" << endl;
             cout << "\"r\" - Rosenbrock function" << endl;
+            cout << "\"e\" - exp(x^2+y^2+z^2)" << endl;
+            cout << "\"4\" - x ^ 2 + y ^ 4 + sin(z) + cos(w)" << endl;
             cout << "another char - x^2+y^2" << endl;
+            
             cin >> input;
-            if (input == 'r')
+
+            switch (input) {
+            case 'r':
                 opt_fun = new Opt_fun2();
-            else
+                break;
+            case 'e':
+                opt_fun = new Opt_fun3();
+                break;
+            case '4':
+                opt_fun = new Opt_fun4();
+                break;
+            default:
                 opt_fun = new Opt_fun1();
+                break;
+            }
+
+            dim = opt_fun->get_dim();
 
             cout << endl;
 
@@ -43,11 +65,21 @@ int main() {
             cout << "another char - limited" << endl;
             cin >> input;
             if (input == 'a')
-                area = new All_space(2);
+                area = new All_space(dim);
             else {
-                cout << "Choose borders (2 left, 2 right)" << endl;
-                cin >> left[0] >> left[1] >> right[0] >> right[1];
-                area = new Dom(2, left, right);
+
+                cout << "Choose left borders(" << dim << ")" << endl;
+                for (int i = 0; i < dim; ++i) {
+                    cin >> temp;
+                    left.push_back(temp);
+                }
+
+                cout << "Choose right borders(" << dim << ")" << endl;
+                for (int i = 0; i < dim; ++i) {
+                    cin >> temp;
+                    right.push_back(temp);
+                }
+                area = new Dom(dim, left, right);
             }
 
             cout << endl;
@@ -124,7 +156,10 @@ int main() {
             cout << endl;
 
             cout << "Choose x_0" << endl;
-            cin >> v[0] >> v[1];
+            for (int i = 0; i < dim; ++i) {
+                cin >> temp;
+                v.push_back(temp);
+            }
             opt_method->optim(v);
             cout << endl;
             output = opt_method->info();

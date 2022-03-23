@@ -24,10 +24,7 @@ vector<vector<double>> Opt_fun::calc_Hess(const vector<double>& v)
     }
     return res;
 }
-const int Opt_fun::get_dim()
-{
-    return dim;
-}
+
 double Opt_fun1::calc(const vector<double>& v)
 {
     return (v[0] * v[0]) + (v[1] * v[1]);
@@ -62,4 +59,44 @@ Opt_fun2::Opt_fun2()
 string Opt_fun2::info()
 {
     return "f(x,y)=(1-x)^2+100(y-x^2)^2";
+}
+
+double Opt_fun3::calc(const vector<double>& v)
+{
+    return exp(v[0]* v[0]+ v[1] * v[1]+ v[2] * v[2]);
+}
+
+Opt_fun3::Opt_fun3()
+{
+    dim = 3;
+    grad = { new Opt_fun3_grad1,new Opt_fun3_grad2 ,new Opt_fun3_grad3 };
+    Hess = { {new Opt_fun3_Hess11,new Opt_fun3_Hess12,new Opt_fun3_Hess13},
+        {new Opt_fun3_Hess12,new Opt_fun3_Hess22,new Opt_fun3_Hess23},
+     {new Opt_fun3_Hess13,new Opt_fun3_Hess23,new Opt_fun3_Hess33} };
+}
+
+string Opt_fun3::info()
+{
+    return "f(x,y,z)=exp(x^2+y^2+z^2)";
+}
+
+double Opt_fun4::calc(const vector<double>&v)
+{
+    return (v[0]*v[0])+(v[1]*v[1]*v[1]*v[1])+sin(v[2])+cos(v[3]);
+}
+
+Opt_fun4::Opt_fun4()
+{
+    dim = 4;
+    grad = { new Opt_fun4_grad1,new Opt_fun4_grad2 ,new Opt_fun4_grad3, new Opt_fun4_grad4 };
+
+    Hess = { {new Opt_fun4_Hess11,new Opt_fun4_Hess12,new Opt_fun4_Hess12,new Opt_fun4_Hess12},
+        {new Opt_fun4_Hess12,new Opt_fun4_Hess22,new Opt_fun4_Hess12,new Opt_fun4_Hess12},
+     {new Opt_fun4_Hess12,new Opt_fun4_Hess12,new Opt_fun4_Hess33,new Opt_fun4_Hess12},
+        {new Opt_fun4_Hess12,new Opt_fun4_Hess12,new Opt_fun4_Hess12,new Opt_fun4_Hess44}};
+}
+
+string Opt_fun4::info()
+{
+    return "f(x,y,z,w)=x^2+y^4+sin(z)+cos(w)";
 }

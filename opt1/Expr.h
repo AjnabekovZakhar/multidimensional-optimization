@@ -12,6 +12,7 @@ class Expr
 	public:
 		virtual double calc(const vector<double>&) = 0;
 		double operator()(const vector<double>&);
+		const int get_dim();
 };
 
 

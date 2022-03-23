@@ -145,6 +145,8 @@
     <ClCompile Include="opt_fun.cpp" />
     <ClCompile Include="opt_fun1_expr.cpp" />
     <ClCompile Include="opt_fun2_expr.cpp" />
+    <ClCompile Include="opt_fun3_expr.cpp" />
+    <ClCompile Include="opt_fun4_expr.cpp" />
     <ClCompile Include="opt_method.cpp" />
     <ClCompile Include="Something.cpp" />
     <ClCompile Include="Stop_crit.cpp" />
@@ -156,6 +158,8 @@
     <ClInclude Include="opt_fun.h" />
     <ClInclude Include="opt_fun1_expr.h" />
     <ClInclude Include="opt_fun2_expr.h" />
+    <ClInclude Include="opt_fun3_expr.h" />
+    <ClInclude Include="opt_fun4_expr.h" />
     <ClInclude Include="opt_method.h" />
     <ClInclude Include="Something.h" />
     <ClInclude Include="Stop_crit.h" />

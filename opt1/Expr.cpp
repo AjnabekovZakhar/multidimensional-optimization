@@ -7,3 +7,8 @@ double Expr::operator()(const vector<double>&a)
     return calc(a);
 }
 
+const int Expr::get_dim()
+{
+    return dim;
+}
+
