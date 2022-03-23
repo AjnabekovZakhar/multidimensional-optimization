@@ -10,6 +10,17 @@ void sup_stop_Newton::set_x_n(vector<double> x_n_)
 	x_n = x_n_;
 }
 
+sup_stop_Newton::~sup_stop_Newton()
+{
+
+	{
+		if (func != nullptr) {
+			delete func;
+			func = nullptr;
+		}
+	}
+}
+
 const vector<double> sup_stop_Newton::get_x_n()
 {
 	return x_n;
@@ -43,6 +54,17 @@ void sup_stop_random_search::set_x_n(vector<double> x_n_)
 {
 	x_n_old = x_n;
 	x_n = x_n_;
+}
+
+sup_stop_random_search::~sup_stop_random_search()
+{
+	{
+		if (func != nullptr) {
+			delete func;
+			func = nullptr;
+		}
+
+	}
 }
 
 double sup_stop_random_search::get_fun_x_n()
