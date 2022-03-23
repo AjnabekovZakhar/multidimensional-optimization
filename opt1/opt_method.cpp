@@ -37,6 +37,7 @@ Opt_method::~Opt_method()
 
 vector<vector<double>> Newton::optim(vector<double> v)
 {
+	dynamic_cast<Stop_crit_count*>(stop_crit)->reset();
 	sup_stop_Newton* sup = new sup_stop_Newton(opt_fun,v);
 	vector<double> l=v, r=v, l_=v, r_=v;
 	
@@ -103,6 +104,8 @@ vector<string> Newton::info()
 
 vector<vector<double>> Random_search::optim(vector<double> v)
 {
+	dynamic_cast<Stop_crit_count*>(stop_crit)->reset();
+
 	sup_stop_random_search* sup = new sup_stop_random_search(opt_fun, v);
 	vector<double> y_n;
 

@@ -28,7 +28,7 @@ const int Stop_crit_count::get_count()
     return count;
 }
 
-void Stop_crit_count::reset_count()
+void Stop_crit_count::reset()
 {
     count = 0;
 }

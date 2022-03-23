@@ -22,7 +22,7 @@ public:
 	Stop_crit_count(int);
 	void set_max(int);
 	const int get_count();
-	void reset_count();
+	virtual void reset();
 	virtual string info() override;
 };
 
